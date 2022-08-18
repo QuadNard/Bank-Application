@@ -3,8 +3,10 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormContainer from '../components/FormContainer';
+import { useNavigate} from 'react-router-dom'
 
-const SignupScreen = () => {
+
+const SignupScreen = ({ history }) => {
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -14,6 +16,18 @@ const SignupScreen = () => {
 
       const submitHandler = (e: SyntheticEvent) => {
         e.preventDefault()
+
+
+        await fetch('localhost:3000/api/tusersRoutes/signup'. {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            password,
+          })
+        })
       }
 
 

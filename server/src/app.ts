@@ -7,10 +7,11 @@ Colors.colors('','')
 
 connectDB( )
 
+//  routes
 const app = express( );
 app.use(express.json());
 app.use('/api/projects', require("./routes/projectRoutes"))
-
+app.use('/api/usersRoutes', require("./routes/usersRoutes"))
 
 app.use(errorHandler)
 

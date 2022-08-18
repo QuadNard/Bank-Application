@@ -17,12 +17,12 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("../utils/config");
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     if (!config_1.MONGO_URI) {
-        console.log('MONGO_URL is not defined  in the env file');
+        console.log('MONGO_URL is not defined  in the env file'.red.underline.bold);
         process.exit(1);
     }
     try {
         yield mongoose_1.default.connect(config_1.MONGO_URI);
-        console.log('MongoDB connected');
+        console.log('MongoDB connected'.blue.underline.bold);
     }
     catch (err) {
         console.log(err.message);
